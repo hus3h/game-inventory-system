@@ -12,29 +12,28 @@ export class Inventory {
     addItems(items: Item[]) { }
 
     hasSpaceForItems(items: Item[]) {
-        return this.spaceManager.hasSpaceForItems(items);
+        return this.spaceManager.inventoryHasSpaceForItems(this, items);
     }
 }
 
-abstract class InventorySpaceManager {
-    abstract hasSpaceForItems(items: Item[]): boolean;
+export interface InventorySpaceManager {
+    inventoryHasSpaceForItems(inventory: Inventory, items: Item[]): boolean;
 }
 
-export class InventoryInfiniteSpace extends InventorySpaceManager {
-    hasSpaceForItems(): boolean {
+export class InventoryInfiniteSpace implements InventorySpaceManager {
+    inventoryHasSpaceForItems(): boolean {
         return true;
     }
 }
 
-export class InventoryFixedSpace extends InventorySpaceManager {
+export class InventoryFixedSpace implements InventorySpaceManager {
     slotsCount: number;
 
     constructor(slotsCount: number) {
-        super();
         this.slotsCount = slotsCount;
     }
 
-    hasSpaceForItems(): boolean {
+    inventoryHasSpaceForItems(): boolean {
         return false;
     }
 }
