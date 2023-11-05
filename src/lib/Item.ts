@@ -19,14 +19,6 @@ export interface Item {
     stackingManager: ItemStackingManager;
 }
 
-interface ItemQuantityManager { }
+export interface ItemQuantityManager { }
 
-interface ItemStackingManager { }
-
-export class ItemFixedQuantity implements ItemQuantityManager { }
-
-export class ItemInfiniteQuantity implements ItemQuantityManager { }
-
-export class ItemFixedStacking implements ItemStackingManager { }
-
-export class ItemInfiniteStacking implements ItemStackingManager { }
+export interface ItemStackingManager { }
