@@ -3,10 +3,11 @@ import { ItemQuantityManager, ItemStackingManager } from "./Item";
 
 export class Inventory extends BaseInventory { }
 
-export class InventoryFixedSpace implements InventorySpaceManager {
+export class InventoryFixedSpace extends InventorySpaceManager {
     slotsCount: number;
 
     constructor(slotsCount: number) {
+        super();
         this.slotsCount = slotsCount;
     }
 
@@ -15,7 +16,7 @@ export class InventoryFixedSpace implements InventorySpaceManager {
     }
 }
 
-export class InventoryInfiniteSpace implements InventorySpaceManager {
+export class InventoryInfiniteSpace extends InventorySpaceManager {
     inventoryHasSpaceForItems(): boolean {
         return true;
     }
