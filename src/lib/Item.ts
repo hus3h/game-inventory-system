@@ -4,13 +4,11 @@ export class InventoryItem {
     inventory: Inventory;
     item: Item;
     quantity: number;
-    index: number;
 
-    constructor(inventory: Inventory, item: Item, quantity: number, index: number) {
+    constructor(inventory: Inventory, item: Item, quantity: number) {
         this.inventory = inventory;
         this.item = item;
         this.quantity = quantity;
-        this.index = index;
     }
 }
 
